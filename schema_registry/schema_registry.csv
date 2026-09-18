@@ -1,0 +1,26 @@
+source_table,column_name,expected_data_type,nullable,is_business_key,description
+procurement_orders,order_id,STRING,false,true,Unique purchase order identifier
+procurement_orders,vendor_name,STRING,false,false,Vendor or supplier name
+procurement_orders,country,STRING,false,false,Vendor country
+procurement_orders,cost_usd,DOUBLE,false,false,Procurement cost in USD
+procurement_orders,order_date,DATE,false,false,Date the purchase order was created
+procurement_orders,quantity,BIGINT,false,false,Quantity of items ordered
+procurement_orders,product_type,STRING,false,false,Type of product ordered
+procurement_orders,payment_terms,STRING,false,false,Payment terms for the purchase order
+manufacturing_batches,mfg_order_id,STRING,false,false,Manufacturing record identifier
+manufacturing_batches,order_ref,STRING,false,true,Reference to procurement order
+manufacturing_batches,production_date,DATE,false,false,Date production started
+manufacturing_batches,materials_used_kg,DOUBLE,false,false,Material consumed during production in kilograms
+manufacturing_batches,production_hours,DOUBLE,false,false,Production duration in hours
+manufacturing_batches,batch_id,STRING,false,true,Unique manufacturing batch identifier
+logistics_shipments,shipment_id,STRING,false,true,Unique shipment identifier
+logistics_shipments,po_number,STRING,false,true,Reference to procurement order
+logistics_shipments,ship_date,DATE,false,false,Date shipment was dispatched
+logistics_shipments,delivery_date,DATE,false,false,Date shipment was delivered
+logistics_shipments,promised_delivery_date,DATE,false,false,Expected delivery date
+logistics_shipments,carrier,STRING,false,false,Logistics carrier
+logistics_shipments,cost_inr,DOUBLE,false,false,Logistics cost in INR
+currency_rates,rate_date,DATE,false,true,Date of exchange rate
+currency_rates,from_currency,STRING,false,false,Source currency
+currency_rates,to_currency,STRING,false,false,Target currency
+currency_rates,exchange_rate,DOUBLE,false,false,Exchange rate from source to target currency

@@ -1,0 +1,6 @@
+vendor_id,vendor_name,country,vendor_category,vendor_status
+V001,Vendor A,India,Raw Materials,ACTIVE
+V002,Vendor B,India,Components,ACTIVE
+V003,Vendor C,India,Packaging,ACTIVE
+V004,Vendor D,USA,Components,ACTIVE
+V005,Vendor E,Germany,Specialty Materials,ACTIVE
