@@ -1,18 +1,18 @@
 # Databricks notebook source
-
+# /// script
+# [tool.databricks.environment]
+# environment_version = "5"
+# ///
 # MAGIC %md
 # MAGIC # Bronze Ingestion - Vendor Master
 # MAGIC
-# MAGIC **Purpose:** Ingest the vendor master source CSV into the Bronze Delta table.
-# MAGIC
-# MAGIC **Source:** data/vendor_master.csv
-# MAGIC
-# MAGIC **Target:** supply_chain.ing_bronze.vendor_master
-# MAGIC
-# MAGIC **Load Strategy:** Full batch refresh
+# MAGIC **Purpose:** Ingest the vendor master source CSV into the Bronze Delta table.  
+# MAGIC **Source:** data/vendor_master.csv  
+# MAGIC **Target:** `supply_chain.ing_bronze.vendor_master`  
+# MAGIC **Load type:** Full batch refresh  
 # MAGIC
 # MAGIC Vendor conformance and dimension logic are handled in the Silver layer.
-
+# MAGIC
 
 # COMMAND ----------
 
@@ -25,14 +25,9 @@ from pyspark.sql.types import (
 
 # COMMAND ----------
 
-notebook_path = dbutils.notebook.getContext().notebookPath().get()
-
-project_root = notebook_path.split("/notebooks/")[0]
-
-source_path = f"file:/Workspace{project_root}/data/vendor_master.csv"
-
+import os
+source_path = f"file:{os.getcwd()}/../../data/vendor_master.csv"
 target_table = "supply_chain.ing_bronze.vendor_master"
-
 
 # COMMAND ----------
 
@@ -89,3 +84,8 @@ if target_count != source_count:
     )
 
 print(f"Bronze load successful: {target_count} records loaded into {target_table}")
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from supply_chain.ing_bronze.vendor_master

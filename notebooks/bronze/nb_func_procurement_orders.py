@@ -1,19 +1,19 @@
 # Databricks notebook source
-
+# /// script
+# [tool.databricks.environment]
+# environment_version = "5"
+# ///
 # MAGIC %md
 # MAGIC # Bronze Ingestion - Procurement Orders
 # MAGIC
-# MAGIC **Purpose:** Ingest the procurement source CSV into the Bronze Delta table.
-# MAGIC
-# MAGIC **Source:** data/procurement.csv
-# MAGIC
-# MAGIC **Target:** supply_chain.ing_bronze.procurement_orders
-# MAGIC
-# MAGIC **Load Strategy:** Full batch refresh
+# MAGIC **Purpose:**  Ingest the procurement source CSV into the Bronze Delta table.  
+# MAGIC **Source:**  data/procurement.csv   
+# MAGIC **Target:**  `supply_chain.ing_bronze.procurement_orders`   
+# MAGIC **Load type:**  Full batch refresh  
 # MAGIC
 # MAGIC The Bronze layer preserves the source structure. Business transformations
 # MAGIC and data-quality rules are applied in downstream Silver processing.
-
+# MAGIC
 
 # COMMAND ----------
 
@@ -29,17 +29,9 @@ from pyspark.sql.types import (
 
 # COMMAND ----------
 
-# Resolve the Git folder root dynamically.
-# This avoids hard-coding the user's Databricks email/path.
-
-notebook_path = dbutils.notebook.getContext().notebookPath().get()
-
-project_root = notebook_path.split("/notebooks/")[0]
-
-source_path = f"file:/Workspace{project_root}/data/procurement.csv"
-
+import os
+source_path = f"file:{os.getcwd()}/../../data/procurement.csv"
 target_table = "supply_chain.ing_bronze.procurement_orders"
-
 
 # COMMAND ----------
 
@@ -106,3 +98,8 @@ if target_count != source_count:
     )
 
 print(f"Bronze load successful: {target_count} records loaded into {target_table}")
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from supply_chain.ing_bronze.procurement_orders

@@ -1,18 +1,18 @@
 # Databricks notebook source
-
+# /// script
+# [tool.databricks.environment]
+# environment_version = "5"
+# ///
 # MAGIC %md
 # MAGIC # Bronze Ingestion - Manufacturing Batches
 # MAGIC
-# MAGIC **Purpose:** Ingest the manufacturing source CSV into the Bronze Delta table.
-# MAGIC
-# MAGIC **Source:** data/manufacturing.csv
-# MAGIC
-# MAGIC **Target:** supply_chain.ing_bronze.manufacturing_batches
-# MAGIC
-# MAGIC **Load Strategy:** Full batch refresh
-# MAGIC
+# MAGIC **Purpose:** Ingest the manufacturing source CSV into the Bronze Delta table.  
+# MAGIC **Source:** data/manufacturing.csv  
+# MAGIC **Target:** `supply_chain.ing_bronze.manufacturing_batches`  
+# MAGIC **Load type:** Full batch refresh  
+# MAGIC   
 # MAGIC Business validation and cross-source relationships are handled downstream.
-
+# MAGIC
 
 # COMMAND ----------
 
@@ -21,20 +21,14 @@ from pyspark.sql.types import (
     StructField,
     StringType,
     DateType,
-    DoubleType
+    LongType
 )
-
 
 # COMMAND ----------
 
-notebook_path = dbutils.notebook.getContext().notebookPath().get()
-
-project_root = notebook_path.split("/notebooks/")[0]
-
-source_path = f"file:/Workspace{project_root}/data/manufacturing.csv"
-
+import os
+source_path = f"file:{os.getcwd()}/../../data/manufacturing.csv"
 target_table = "supply_chain.ing_bronze.manufacturing_batches"
-
 
 # COMMAND ----------
 
@@ -42,11 +36,10 @@ manufacturing_schema = StructType([
     StructField("mfg_order_id", StringType(), True),
     StructField("order_ref", StringType(), True),
     StructField("production_date", DateType(), True),
-    StructField("materials_used_kg", DoubleType(), True),
-    StructField("production_hours", DoubleType(), True),
+    StructField("materials_used_kg", LongType(), True),
+    StructField("production_hours", LongType(), True),
     StructField("batch_id", StringType(), True)
 ])
-
 
 # COMMAND ----------
 
@@ -92,3 +85,8 @@ if target_count != source_count:
     )
 
 print(f"Bronze load successful: {target_count} records loaded into {target_table}")
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from supply_chain.ing_bronze.manufacturing_batches
