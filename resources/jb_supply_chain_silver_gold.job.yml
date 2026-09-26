@@ -1,0 +1,151 @@
+resources:
+  jobs:
+    jb_supply_chain_silver_gold:
+      name: jb_supply_chain_silver_gold
+      tasks:
+        - task_key: silver_fx_exchange_rates
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          environment_key: Default
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/silver/etl/nb_func_fx_exchange_rates_ref.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: silver_vendor_master
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          environment_key: Default
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/silver/etl/nb_func_vendor_master_dim.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: silver_purchase_order_fulfillment_sot
+          depends_on:
+            - task_key: silver_fx_exchange_rates
+            - task_key: silver_vendor_master
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          environment_key: Default
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/silver/etl/nb_func_purchase_order_fulfillment_sot.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: gold_purchase_order_fulfillment_sot_vw
+          depends_on:
+            - task_key: silver_purchase_order_fulfillment_sot
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          environment_key: Default
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/gold/nb_purchase_order_fulfillment_sot_vw.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: gold_cost_impact
+          depends_on:
+            - task_key: gold_purchase_order_fulfillment_sot_vw
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          environment_key: Default
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/gold/nb_cost_impact_analysis_vw.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: gold_on_time_delivery
+          depends_on:
+            - task_key: gold_purchase_order_fulfillment_sot_vw
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          environment_key: Default
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/gold/nb_on_time_delivery_analysis_vw.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: gold_po_fulfillment_summary
+          depends_on:
+            - task_key: gold_purchase_order_fulfillment_sot_vw
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          environment_key: Default
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/gold/nb_po_fulfillment_summary_vw.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: gold_supplier_performance
+          depends_on:
+            - task_key: gold_purchase_order_fulfillment_sot_vw
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          environment_key: Default
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/gold/nb_supplier_performance_analysis_vw.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+      description: Silver + Gold orchestration job. Refreshes Silver supporting tables and Purchase Order Fulfillment SOT, then publishes Gold analytical views daily at 7 PM IST.
+      email_notifications:
+        no_alert_for_skipped_runs: false
+      environments:
+        - environment_key: Default
+          spec:
+            environment_version: "5"
+      max_concurrent_runs: 1
+      performance_target: PERFORMANCE_OPTIMIZED
+      queue:
+        enabled: true
+      schedule:
+        pause_status: UNPAUSED
+        quartz_cron_expression: 0 0 19 * * ?
+        timezone_id: Asia/Calcutta
+      tags:
+        "environment": "dev"
+        "layer": "silver-gold"
+        "project": "multi-source-supply-chain"
+      timeout_seconds: 0
+      webhook_notifications: {}

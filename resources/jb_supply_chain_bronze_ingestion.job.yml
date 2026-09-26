@@ -1,0 +1,87 @@
+resources:
+  jobs:
+    jb_supply_chain_bronze_ingestion:
+      name: jb_supply_chain_bronze_ingestion
+      tasks:
+        - task_key: bronze_currency
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/bronze/nb_func_currency_rates.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: bronze_logistics
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/bronze/nb_func_logistics_shipments.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: bronze_manufacturing
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/bronze/nb_func_manufacturing_batches.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: bronze_procurement
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/bronze/nb_func_procurement_orders.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: bronze_vendor_master
+          disable_auto_optimization: false
+          disabled: false
+          email_notifications: {}
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          notebook_task:
+            notebook_path: ../notebooks/bronze/nb_func_vendor_master.py
+            source: WORKSPACE
+          retry_on_timeout: true
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+      description: jb_supply_chain_bronze_ingestion; Job specified to bronze ingestion layer tables scheduled to run 3 times per day  at  6:00 AM, 2:00 PM, 10:00 PM IST time.
+      email_notifications:
+        no_alert_for_skipped_runs: false
+      max_concurrent_runs: 1
+      performance_target: PERFORMANCE_OPTIMIZED
+      queue:
+        enabled: true
+      schedule:
+        pause_status: UNPAUSED
+        quartz_cron_expression: 0 0 6,14,22 * * ?
+        timezone_id: Asia/Calcutta
+      tags:
+        "environment": "dev"
+        "layer": "bronze"
+        "project": "multi-source-supply-chain"
+      timeout_seconds: 0
+      webhook_notifications: {}

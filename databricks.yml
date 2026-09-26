@@ -1,0 +1,9 @@
+bundle:
+  name: multi-source-supply-chain
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    default: true
