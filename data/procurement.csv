@@ -1,51 +1,76 @@
 order_id,vendor_id,vendor_name,country,cost_usd,order_date,quantity,product_type,payment_terms
-PO-001,V003,Vendor C,India,97.45,2026-03-10,73,Components,NET30
-PO-002,V003,Vendor C,India,83.79,2026-03-12,160,Finished Goods,NET45
-PO-003,V002,Vendor B,India,71.93,2026-03-15,108,Raw Materials,NET60
-PO-004,V001,Vendor A,India,32.49,2026-01-30,405,Raw Materials,NET30
-PO-005,V001,Vendor A,India,31.41,2026-01-13,204,Finished Goods,NET45
-PO-006,V005,Vendor E,Germany,38.75,2026-01-21,199,Finished Goods,NET45
-PO-007,V003,Vendor C,India,65.32,2026-01-10,321,Finished Goods,NET60
-PO-008,V001,Vendor A,India,48.91,2026-02-01,93,Components,NET60
-PO-009,V003,Vendor C,India,70.04,2026-03-13,122,Raw Materials,NET30
-PO-010,V002,Vendor B,India,34.97,2026-01-05,422,Components,NET30
-PO-011,V003,Vendor C,India,94.58,2026-01-28,477,Finished Goods,NET45
-PO-012,V002,Vendor B,India,52.43,2026-01-28,345,Finished Goods,NET45
-PO-013,V002,Vendor B,India,18.26,2026-01-19,145,Finished Goods,NET60
-PO-014,V001,Vendor A,India,75.97,2026-03-10,144,Components,NET60
-PO-015,V004,Vendor D,USA,25.84,2026-02-21,195,Raw Materials,NET60
-PO-016,V004,Vendor D,USA,76.8,2026-03-05,56,Raw Materials,NET30
-PO-017,V001,Vendor A,India,69.65,2026-01-21,415,Finished Goods,NET30
-PO-018,V003,Vendor C,India,61.61,2026-02-19,205,Components,NET60
-PO-019,V004,Vendor D,USA,86.77,2026-02-02,293,Raw Materials,NET60
-PO-020,V001,Vendor A,India,89.05,2026-01-15,359,Components,NET60
-PO-021,V004,Vendor D,USA,32.88,2026-02-13,67,Raw Materials,NET45
-PO-022,V002,Vendor B,India,73.6,2026-01-01,498,Finished Goods,NET45
-PO-023,V003,Vendor C,India,21.97,2026-03-06,400,Raw Materials,NET60
-PO-024,V005,Vendor E,Germany,65.7,2026-02-08,440,Finished Goods,NET30
-PO-025,V004,Vendor D,USA,77.44,2026-01-20,201,Finished Goods,NET60
-PO-026,V003,Vendor C,India,35.79,2026-01-01,316,Raw Materials,NET30
-PO-027,V003,Vendor C,India,98.61,2026-02-16,459,Components,NET30
-PO-028,V002,Vendor B,India,88.41,2026-01-08,133,Raw Materials,NET30
-PO-029,V003,Vendor C,India,11.58,2026-03-04,427,Finished Goods,NET30
-PO-030,V004,Vendor D,USA,50.15,2026-01-17,347,Finished Goods,NET30
-PO-031,V005,Vendor E,Germany,87.88,2026-02-03,280,Components,NET30
-PO-032,V004,Vendor D,USA,74.34,2026-03-11,396,Raw Materials,NET60
-PO-033,V003,Vendor C,India,99.54,2026-02-09,214,Finished Goods,NET45
-PO-034,V005,Vendor E,Germany,54.17,2026-02-26,470,Raw Materials,NET30
-PO-035,V002,Vendor B,India,37.12,2026-01-29,42,Finished Goods,NET60
-PO-036,V005,Vendor E,Germany,25.92,2026-01-30,311,Raw Materials,NET60
-PO-037,V005,Vendor E,Germany,11.4,2026-01-08,127,Raw Materials,NET45
-PO-038,V001,Vendor A,India,27.61,2026-01-10,273,Finished Goods,NET45
-PO-039,V003,Vendor C,India,17.57,2026-01-28,286,Finished Goods,NET60
-PO-040,V004,Vendor D,USA,79.54,2026-03-02,134,Components,NET30
-PO-041,V001,Vendor A,India,67.6,2026-01-13,59,Components,NET45
-PO-042,V004,Vendor D,USA,87.06,2026-02-22,249,Raw Materials,NET60
-PO-043,V001,Vendor A,India,43.25,2026-01-13,41,Components,NET30
-PO-044,V001,Vendor A,India,23.07,2026-02-01,108,Components,NET30
-PO-045,V002,Vendor B,India,31.46,2026-02-24,103,Raw Materials,NET30
-PO-046,V002,Vendor B,India,86.83,2026-02-26,423,Finished Goods,NET30
-PO-047,V002,Vendor B,India,99.93,2026-01-07,343,Raw Materials,NET30
-PO-048,V001,Vendor A,India,43.61,2026-01-31,95,Components,NET30
-PO-049,V001,Vendor A,India,10.57,2026-02-21,472,Components,NET30
-PO-050,V004,Vendor D,USA,93.02,2026-02-19,145,Components,NET45
+PO-001,V002,Vendor B,India,74.91,2026-05-01,155,Raw Materials,NET30
+PO-002,V006,Vendor F,Japan,71.24,2026-06-10,727,Components,NET60
+PO-003,V012,Vendor L,India,86.17,2026-05-20,267,Finished Goods,NET45
+PO-004,V007,Vendor G,Singapore,77.78,2026-05-21,672,Components,NET45
+PO-005,V012,Vendor L,India,47.68,2026-04-21,217,Components,NET30
+PO-006,V011,Vendor K,South Korea,100.07,2026-01-09,163,Finished Goods,NET45
+PO-007,V010,Vendor J,Germany,57.19,2026-05-14,511,Raw Materials,NET45
+PO-008,V010,Vendor J,Germany,79.13,2026-05-05,487,Components,NET45
+PO-009,V010,Vendor J,Germany,136.55,2026-05-23,689,Components,NET45
+PO-010,V012,Vendor L,India,68.58,2026-04-28,110,Finished Goods,NET60
+PO-011,V010,Vendor J,Germany,138.69,2026-03-08,473,Raw Materials,NET45
+PO-012,V005,Vendor E,Germany,99.04,2026-05-03,75,Components,NET45
+PO-013,V009,Vendor I,USA,113.39,2026-01-25,209,Components,NET30
+PO-014,V012,Vendor L,India,18.36,2026-04-26,24,Components,NET60
+PO-015,V008,Vendor H,India,93.47,2026-05-20,95,Raw Materials,NET30
+PO-016,V008,Vendor H,India,11.48,2026-01-31,645,Finished Goods,NET45
+PO-017,V002,Vendor B,India,5.74,2026-04-02,168,Finished Goods,NET60
+PO-018,V008,Vendor H,India,105.01,2026-05-28,513,Raw Materials,NET60
+PO-019,V005,Vendor E,Germany,90.25,2026-02-27,494,Finished Goods,NET60
+PO-020,V008,Vendor H,India,17.24,2026-05-10,307,Finished Goods,NET30
+PO-021,V007,Vendor G,Singapore,49.37,2026-02-04,610,Components,NET45
+PO-022,V009,Vendor I,USA,122.0,2026-02-08,542,Components,NET30
+PO-023,V007,Vendor G,Singapore,133.73,2026-01-28,408,Raw Materials,NET45
+PO-024,V001,Vendor A,India,8.71,2026-04-01,36,Components,NET45
+PO-025,V008,Vendor H,India,52.28,2026-03-19,470,Raw Materials,NET45
+PO-026,V003,Vendor C,India,94.7,2026-04-30,595,Raw Materials,NET30
+PO-027,V007,Vendor G,Singapore,35.01,2026-06-01,542,Finished Goods,NET45
+PO-028,V003,Vendor C,India,38.83,2026-04-28,622,Finished Goods,NET30
+PO-029,V001,Vendor A,India,9.95,2026-05-21,418,Finished Goods,NET30
+PO-030,V009,Vendor I,USA,83.99,2026-01-12,673,Raw Materials,NET45
+PO-031,V003,Vendor C,India,108.09,2026-02-18,505,Raw Materials,NET30
+PO-032,V008,Vendor H,India,118.88,2026-05-16,233,Finished Goods,NET30
+PO-033,V004,Vendor D,USA,127.43,2026-02-11,687,Components,NET45
+PO-034,V001,Vendor A,India,65.04,2026-04-19,555,Raw Materials,NET45
+PO-035,V004,Vendor D,USA,54.89,2026-03-20,201,Components,NET45
+PO-036,V002,Vendor B,India,46.71,2026-05-08,435,Raw Materials,NET45
+PO-037,V005,Vendor E,Germany,69.46,2026-05-13,503,Finished Goods,NET60
+PO-038,V007,Vendor G,Singapore,127.94,2026-03-12,106,Raw Materials,NET30
+PO-039,V011,Vendor K,South Korea,98.62,2026-01-24,475,Components,NET60
+PO-040,V006,Vendor F,Japan,56.03,2026-02-16,37,Raw Materials,NET45
+PO-041,V006,Vendor F,Japan,87.99,2026-05-24,713,Finished Goods,NET30
+PO-042,V001,Vendor A,India,108.82,2026-01-29,645,Finished Goods,NET60
+PO-043,V004,Vendor D,USA,47.73,2026-02-24,593,Components,NET60
+PO-044,V001,Vendor A,India,19.71,2026-05-23,145,Components,NET30
+PO-045,V004,Vendor D,USA,20.38,2026-04-22,185,Raw Materials,NET45
+PO-046,V006,Vendor F,Japan,96.36,2026-02-17,671,Finished Goods,NET45
+PO-047,V005,Vendor E,Germany,126.42,2026-03-12,612,Components,NET45
+PO-048,V009,Vendor I,USA,42.14,2026-02-11,277,Raw Materials,NET45
+PO-049,V004,Vendor D,USA,144.99,2026-03-07,434,Raw Materials,NET30
+PO-050,V003,Vendor C,India,49.94,2026-03-02,33,Raw Materials,NET60
+PO-051,V005,Vendor E,Germany,148.27,2026-05-24,600,Components,NET45
+PO-052,V012,Vendor L,India,95.73,2026-04-27,631,Finished Goods,NET60
+PO-053,V004,Vendor D,USA,50.83,2026-01-10,423,Raw Materials,NET60
+PO-054,V010,Vendor J,Germany,146.97,2026-04-29,446,Raw Materials,NET60
+PO-055,V006,Vendor F,Japan,103.8,2026-04-06,523,Components,NET45
+PO-056,V008,Vendor H,India,13.36,2026-03-16,374,Finished Goods,NET45
+PO-057,V011,Vendor K,South Korea,105.82,2026-01-07,298,Components,NET60
+PO-058,V001,Vendor A,India,116.34,2026-02-01,314,Components,NET60
+PO-059,V012,Vendor L,India,143.73,2026-01-06,565,Raw Materials,NET60
+PO-060,V002,Vendor B,India,149.58,2026-01-15,748,Raw Materials,NET60
+PO-061,V009,Vendor I,USA,10.41,2026-02-01,131,Finished Goods,NET45
+PO-062,V004,Vendor D,USA,146.13,2026-06-02,673,Components,NET30
+PO-063,V002,Vendor B,India,23.31,2026-04-19,602,Components,NET45
+PO-064,V002,Vendor B,India,117.61,2026-04-07,255,Finished Goods,NET30
+PO-065,V001,Vendor A,India,83.72,2026-02-02,197,Finished Goods,NET60
+PO-066,V006,Vendor F,Japan,85.46,2026-05-19,710,Components,NET30
+PO-067,V010,Vendor J,Germany,7.41,2026-02-28,33,Finished Goods,NET45
+PO-068,V011,Vendor K,South Korea,143.98,2026-04-17,280,Raw Materials,NET60
+PO-069,V009,Vendor I,USA,126.74,2026-06-01,101,Finished Goods,NET30
+PO-070,V005,Vendor E,Germany,54.4,2026-05-12,281,Finished Goods,NET60
+PO-071,V003,Vendor C,India,100.39,2026-03-23,67,Raw Materials,NET60
+PO-072,V011,Vendor K,South Korea,13.45,2026-03-04,491,Raw Materials,NET60
+PO-073,V011,Vendor K,South Korea,139.45,2026-05-11,164,Components,NET60
+PO-074,V007,Vendor G,Singapore,86.43,2026-04-03,248,Components,NET45
+PO-075,V003,Vendor C,India,57.07,2026-02-21,393,Finished Goods,NET45
