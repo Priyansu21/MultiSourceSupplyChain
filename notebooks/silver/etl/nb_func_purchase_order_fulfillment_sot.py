@@ -395,6 +395,8 @@ spark.sql(f"""MERGE INTO {prj_catalog}.{sot_schema}.purchase_order_fulfillment_s
             current_date(),
             current_user()
         )
+        WHEN NOT MATCHED BY SOURCE THEN
+        DELETE
     """)
 
 print("Purchase Order Fulfillment SOT MERGE completed successfully.")
@@ -402,6 +404,11 @@ print("Purchase Order Fulfillment SOT MERGE completed successfully.")
 # COMMAND ----------
 
 # DBTITLE 1,MERGE Failed → Quarantine
+
+spark.sql(f"""
+    TRUNCATE TABLE {prj_catalog}.{sot_schema}.quarantine_supply_chain
+""")
+
 spark.sql(f"""MERGE INTO {prj_catalog}.{sot_schema}.quarantine_supply_chain AS target
     USING tmp_purchase_order_fulfillment_failed AS source
         ON  target.business_key = source.purchase_order_id
